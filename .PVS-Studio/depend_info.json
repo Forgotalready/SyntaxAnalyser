@@ -1,0 +1,30 @@
+[
+    {
+        "arguments": [
+            "D:\\Clib\\MingGW_forSFML\\bin\\c++.exe",
+            "-g",
+            "-std=gnu++20",
+            "-fdiagnostics-color=always",
+            "-DPVS_STUDIO",
+            "-DPVS_VERSION_MAJOR=7",
+            "-DPVS_VERSION_MINOR=34",
+            "D:\\NewFolder\\Labs\\Compile\\Lab1.1\\Rule\\Rule.cpp"
+        ],
+        "dependencies": [],
+        "id": 1
+    },
+    {
+        "arguments": [
+            "D:\\Clib\\MingGW_forSFML\\bin\\c++.exe",
+            "-g",
+            "-std=gnu++20",
+            "-fdiagnostics-color=always",
+            "-DPVS_STUDIO",
+            "-DPVS_VERSION_MAJOR=7",
+            "-DPVS_VERSION_MINOR=34",
+            "D:\\NewFolder\\Labs\\Compile\\Lab1.1\\main.cpp"
+        ],
+        "dependencies": [],
+        "id": 2
+    }
+]
