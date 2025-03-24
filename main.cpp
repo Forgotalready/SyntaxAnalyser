@@ -13,14 +13,14 @@ enum State : uint8_t{
 };
 
 std::vector<Rule> Grammar ={
-        {"A", {"!", "B", "!"}},
-        {"B", {"T"}},
-        {"B", {"T", "+", "B"}},
-        {"T", {"M"}},
-        {"T", {"M", "*", "T"}},
-        {"M", {"a"}},
-        {"M", {"b"}},
-        {"M", {"(", "B", ")"}}
+        {"A", {"!", "B", "!"}}, //1
+        {"B", {"T"}},//2
+        {"B", {"T", "+", "B"}},//3
+        {"T", {"M"}},//4
+        {"T", {"M", "*", "T"}},//5
+        {"M", {"a"}},//6
+        {"M", {"b"}},//7
+        {"M", {"(", "B", ")"}}//8
 };
 
 std::vector<std::string> T ={
@@ -116,7 +116,7 @@ bool parse(std::vector<std::string>& exp, std::vector<int>& res){
             /*
              * В нормальном состоянии:
              * 1) Проверить условие остановки алгоритма (шаг 3)
-             * 2) не конец ли строки до конца (шаг 4)
+             * 2) Проверить не конец ли строки (шаг 4)
              * 3) Взять элемент с верхушки L2
              * 4) Провести анализ (если терминальный (шаг 2 или шаг 4) сравнить с элементом строки, если не терминальный расписать (шаг 1))
              * */
@@ -125,7 +125,11 @@ bool parse(std::vector<std::string>& exp, std::vector<int>& res){
                 form_result_array(L1, res);
                 return true;
             }
-            if(L2.empty() && pos != exp.size()){
+            if(L2.empty() && pos < exp.size()){
+                state = BACKTRACK;
+                continue;
+            }
+            if (!L2.empty() && pos == exp.size()) {
                 state = BACKTRACK;
                 continue;
             }
